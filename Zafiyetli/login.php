@@ -8,13 +8,13 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 // SQL Injection açığı
-//$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 // SQL Injection açığı önlemek için hazırlıklı sorgular kullan
-$query = "SELECT * FROM users WHERE username=:username AND password=:password";
-$stmt = $db->prepare($query);
-$stmt->bindValue(':username', $username, SQLITE3_TEXT);
-$stmt->bindValue(':password', $password, SQLITE3_TEXT);
-$result = $stmt->execute();
+//$query = "SELECT * FROM users WHERE username=:username AND password=:password";
+//$stmt = $db->prepare($query);
+//$stmt->bindValue(':username', $username, SQLITE3_TEXT);
+//$stmt->bindValue(':password', $password, SQLITE3_TEXT);
+//$result = $stmt->execute();
 
 // Kullanıcı varsa yönlendir
 if ($result && $result->fetchArray()) {
